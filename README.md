@@ -8,3 +8,5 @@ TODO'S
 
 [] Set up DataBase.
 [] Ask questions about leaving normal JS files out.
+
+[] TS middleware info https://wanago.io/2018/12/03/typescript-express-tutorial-routing-controllers-middleware/
