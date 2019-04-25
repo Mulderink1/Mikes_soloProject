@@ -2,6 +2,8 @@
 
 ```
 cd server
+npm run dev
+
 yarn start:dev
 ```
 

@@ -1,0 +1,34 @@
+body {
+  opacity: 0.9;
+  text-align: center;
+  background-color: rgb(61, 60, 60);
+}
+h3 {
+  opacity: 1;
+  color: black;
+}
+
+#app {
+  opacity: 0.5;
+  background-color: rgb(137, 163, 189);
+  position: fixed;
+  top: 17.5%;
+  left: 10%;
+  width: 78%;
+  height: 65%;
+
+}
+
+.mike { 
+  opacity: 1;
+  color: red;
+}
+
+
+.stockFrame {
+  text-align: left;
+}
+button {
+  padding: 3px;
+  margin: 3px;
+}
