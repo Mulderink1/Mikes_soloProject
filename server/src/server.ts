@@ -1,6 +1,5 @@
 import * as express from 'express';
 import { getTickerControler, addTickerControler, deleteTickerControler, getTickerValueControler } from "./controllers"
-import { NextFunction } from 'connect';
 
 const bodyParser = require('body-parser');
 const app = express();

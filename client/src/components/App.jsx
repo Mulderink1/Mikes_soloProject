@@ -135,27 +135,28 @@ class App extends Component {
     const stockFramesArr = [];
     for (let i = 0; i < this.state.stockFrames.length; i += 1) {
       if (i >= 6) break;
-      stockFramesArr.push(<StockFrame stock_ticker = {this.state.stockFrames[i].stock_ticker} price_paid = {this.state.stockFrames[i].price_paid} stock_value = {this.state.stockFrames[i].stock_value} />)
+      stockFramesArr.push(<StockFrame className="stockFrame" stock_ticker = {this.state.stockFrames[i].stock_ticker} price_paid = {this.state.stockFrames[i].price_paid} stock_value = {this.state.stockFrames[i].stock_value} />)
     }
     
     return (
     <div className="outerBox">
       <h1 className="mike ">
-        Mikeys Making Paper Today!
+        Mikeys Stock App!
       </h1>
       <span>
-        <button onClick={this.getTickerValues}> Update Stock Price </button>
+        <button onClick={this.getTickerValues}> Update Stock Price </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button onClick={this.refreshTickerValue}> Refresh Protfoilo </button>
       </span>
-      <h1 className="addStocks">
-        Stock:<input onChange={this.addTickerStr}></input>
-        Price:<input onChange={this.addTickerPriceStr}></input>
+      <h2 className="addStocks">
+        Stock:&nbsp;&nbsp;<input onChange={this.addTickerStr}></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Price:&nbsp;&nbsp;<input onChange={this.addTickerPriceStr}></input>&nbsp;&nbsp;
         <button onClick={this.addTicker}>Add Stock</button>
-      </h1>
-      <h1>
-        Stock:<input onChange={this.deleteTickerStr}></input>
+      </h2>
+      <h2>
+        Stock:&nbsp;&nbsp;<input onChange={this.deleteTickerStr}></input>&nbsp;&nbsp;
         <button onClick={this.deleteTicker}>Remove Stock</button>
-      </h1>
+      </h2>
+      <br></br>
       {stockFramesArr}
     </div>
     )

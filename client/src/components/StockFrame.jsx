@@ -4,9 +4,9 @@ const StockFrame = (props) => {
   return (
     <div>
       <h3 className="stockFrame"> 
-        Stock Ticker: {props.stock_ticker} 
-        Price Paid: {props.price_paid} 
-        Stock Value: {props.stock_value}
+        Stock Ticker:&nbsp;&nbsp;{props.stock_ticker}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Price Paid:&nbsp;&nbsp;${props.price_paid}&nbsp;&nbsp;&nbsp;&nbsp;
+        Stock Value:&nbsp;&nbsp;${props.stock_value}
       </h3>
     </div>
   ) 
