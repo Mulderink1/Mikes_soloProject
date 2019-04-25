@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import StockFrame from './StockFrame';
 
 const getTickerURL = 'http://localhost:3000/getTicker'
+const getTickerValuesURL = 'http://localhost:3000/getTickerValues'
 const addTickerURL = 'http://localhost:3000/addTicker'
 const deleteTickerURL = 'http://localhost:3000/deleteTicker'
 
@@ -15,6 +16,8 @@ class App extends Component {
       deleteTickerStr: ''
     }
     this.getTicker = this.getTicker.bind(this)
+    this.refreshTickerValue = this.refreshTickerValue.bind(this)
+    this.getTickerValues = this.getTickerValues.bind(this)
     this.addTicker= this.addTicker.bind(this)
     this.addTickerPriceStr = this.addTickerPriceStr.bind(this)
     this.addTickerStr = this.addTickerStr.bind(this)
@@ -73,6 +76,23 @@ class App extends Component {
     })
   }
 
+  refreshTickerValue() {
+    fetch(getTickerURL)
+    .then((response) => response.json()
+    )
+    .then((json) => {
+      this.setState({
+        stockFrames: json,
+      })
+      return;
+    })
+  }
+
+  
+  getTickerValues() {
+    fetch(getTickerValuesURL)
+  }
+
 
   deleteTicker() {
     fetch(deleteTickerURL, {
@@ -115,7 +135,7 @@ class App extends Component {
     const stockFramesArr = [];
     for (let i = 0; i < this.state.stockFrames.length; i += 1) {
       if (i >= 6) break;
-      stockFramesArr.push(<StockFrame stock_ticker = {this.state.stockFrames[i].stock_ticker} price_paid = {this.state.stockFrames[i].price_paid} deleteTicker = {this.deleteTicker} />)
+      stockFramesArr.push(<StockFrame stock_ticker = {this.state.stockFrames[i].stock_ticker} price_paid = {this.state.stockFrames[i].price_paid} stock_value = {this.state.stockFrames[i].stock_value} />)
     }
     
     return (
@@ -123,6 +143,10 @@ class App extends Component {
       <h1 className="mike ">
         Mikeys Making Paper Today!
       </h1>
+      <span>
+        <button onClick={this.getTickerValues}> Update Stock Price </button>
+        <button onClick={this.refreshTickerValue}> Refresh Protfoilo </button>
+      </span>
       <h1 className="addStocks">
         Stock:<input onChange={this.addTickerStr}></input>
         Price:<input onChange={this.addTickerPriceStr}></input>

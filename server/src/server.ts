@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { getTickerControler, addTickerControler, deleteTickerControler } from "./controllers"
+import { getTickerControler, addTickerControler, deleteTickerControler, getTickerValueControler } from "./controllers"
 import { NextFunction } from 'connect';
 
 const bodyParser = require('body-parser');
@@ -25,6 +25,12 @@ app.use(function(req: express.Request, res: express.Response, next: express.Next
 
 
 app.get('/getTicker', getTickerControler, (req: express.Request, res: express.Response) => {
+  res.set({'content-type': 'text/html'});
+  if (res.locals.err) res.status(404).send(res.locals.err);
+  res.send(res.locals.data);
+});
+
+app.get('/getTickerValues', getTickerValueControler, (req: express.Request, res: express.Response) => {
   res.set({'content-type': 'text/html'});
   if (res.locals.err) res.status(404).send(res.locals.err);
   res.send(res.locals.data);

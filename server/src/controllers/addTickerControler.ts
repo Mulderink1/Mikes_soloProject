@@ -5,6 +5,7 @@ import { connectToDB } from "./connectToDB"
 export const addTickerControler = (req: express.Request, res: express.Response, next: express.NextFunction) => {
   const pool:any = connectToDB();
 
+
   const stock: string = req.body.stock;
   const price: string = req.body.price;
   const query: object = {
